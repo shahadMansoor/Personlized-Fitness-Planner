@@ -18,3 +18,18 @@ Features
 
 Technologies Used
  • Frontend: React, TailwindCSS
+ 
+⸻
+Setup and Installation Instructions
+
+We begin by ensuring Node.js and npm are installed on the machine. Once inside the project folder, we run npm install to install all required dependencies. The project is built using React and TailwindCSS, with Tailwind already configured through PostCSS. Necessary dependencies like tailwindcss, autoprefixer, and postcss are pre-installed, and we manage styling through the tailwind.config.js and global CSS files. After setup, we launch the development server using npm start and access the application through http://localhost:3000 in the browser.
+
+⸻
+
+Team Member:
+ • Shahad Almarhoon (202158610)
+ • Zainab Almaskeen (202175370)
+ • Ghufran Alhulaymi (202175090)
+ • Atheer Alaithan (202161870)
+ • Bayan Alhassan (202160930)
+ • Kawthar Alsabi (202261400)
