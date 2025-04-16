@@ -1,147 +1,78 @@
 import React, { useState } from 'react';
-import UserLayout from '../components/UserLayout';
+import { useNavigate, Link } from 'react-router-dom';
 
 const CreateAccount = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    age: '',
-    weight: '',
-    height: '',
-    goal: '',
-    level: '',
-    workout: '',
-  });
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSelect = (key, value) => {
-    setForm({ ...form, [key]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleNext = (e) => {
     e.preventDefault();
-    if (!form.email.endsWith('@kfupm.edu.sa')) {
+
+    if (!email.endsWith('@kfupm.edu.sa')) {
       alert('Email must end with @kfupm.edu.sa');
       return;
     }
-    alert('Account created successfully!');
+
+    if (password.length < 4) {
+      alert('Password must be at least 4 characters');
+      return;
+    }
+
+    // Redirect to the next step of account creation
+    navigate('/create-account-details');
   };
 
   return (
-    <UserLayout pageTitle="Create Account">
-      <div className="max-w-4xl mx-auto">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Personal Info */}
-          <div className="text-xl font-bold mb-4">Personal Information</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={form.name}
-              onChange={handleChange}
-              className="bg-green-200 px-4 py-2 rounded"
-            />
+    <div className="min-h-screen bg-[#f8f9f8] px-4 py-10">
+      {/* Page Header with rounded style */}
+      <div className="bg-green-800 text-white text-center py-4 text-2xl font-bold rounded-b-[100px] w-full max-w-6xl mx-auto mb-10">
+        Create Account
+      </div>
+
+      {/* Form Box */}
+      <div className="flex justify-center">
+        <div className="bg-white w-full max-w-xl p-10 rounded-2xl shadow-xl">
+          <h2 className="text-center text-2xl font-semibold mb-8">Create account</h2>
+
+          <form onSubmit={handleNext} className="space-y-6">
             <input
               type="email"
-              name="email"
-              placeholder="xxxxxxxx@kfupm.edu.sa"
-              value={form.email}
-              onChange={handleChange}
-              className="bg-green-200 px-4 py-2 rounded"
+              placeholder="Email"
+              className="w-full border border-gray-300 px-5 py-3 rounded-lg text-lg"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <input
-              type="number"
-              name="age"
-              placeholder="Age"
-              value={form.age}
-              onChange={handleChange}
-              className="bg-green-200 px-4 py-2 rounded"
-            />
-            <input
-              type="number"
-              name="weight"
-              placeholder="Weight (kg)"
-              value={form.weight}
-              onChange={handleChange}
-              className="bg-green-200 px-4 py-2 rounded"
-            />
-            <input
-              type="number"
-              name="height"
-              placeholder="Height (cm)"
-              value={form.height}
-              onChange={handleChange}
-              className="bg-green-200 px-4 py-2 rounded"
-            />
-          </div>
 
-          {/* Selections */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            {/* Goal */}
-            <div className="bg-white rounded shadow p-4">
-              <h3 className="font-semibold mb-2">Goal</h3>
-              {['Maintain a healthy lifestyle', 'Lose weight', 'Build muscle'].map((g) => (
-                <div
-                  key={g}
-                  onClick={() => handleSelect('goal', g)}
-                  className={`cursor-pointer px-2 py-1 rounded hover:bg-green-100 ${
-                    form.goal === g ? 'bg-green-200 font-semibold' : ''
-                  }`}
-                >
-                  {g}
-                </div>
-              ))}
-            </div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full border border-gray-300 px-5 py-3 rounded-lg text-lg"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-            {/* Workout Level */}
-            <div className="bg-white rounded shadow p-4">
-              <h3 className="font-semibold mb-2">Workout level</h3>
-              {['Beginner', 'Intermediate', 'Advanced'].map((l) => (
-                <div
-                  key={l}
-                  onClick={() => handleSelect('level', l)}
-                  className={`cursor-pointer px-2 py-1 rounded hover:bg-green-100 ${
-                    form.level === l ? 'bg-green-200 font-semibold' : ''
-                  }`}
-                >
-                  {l}
-                </div>
-              ))}
-            </div>
-
-            {/* Workout Type */}
-            <div className="bg-white rounded shadow p-4">
-              <h3 className="font-semibold mb-2">Workout</h3>
-              {['with trainer', 'without trainer'].map((w) => (
-                <div
-                  key={w}
-                  onClick={() => handleSelect('workout', w)}
-                  className={`cursor-pointer px-2 py-1 rounded hover:bg-green-100 ${
-                    form.workout === w ? 'bg-green-200 font-semibold' : ''
-                }`}
-              >
-                {w}
-              </div>
-            ))}
-          </div>
+            <button
+              type="submit"
+              className="bg-green-400 w-full py-3 rounded-lg text-lg font-semibold text-white hover:bg-green-500 transition"
+            >
+              Next →
+            </button>
+          </form>
         </div>
+      </div>
 
-        <div className="text-center mt-6">
-          <button
-            type="submit"
-            className="bg-green-400 hover:bg-green-500 px-6 py-2 rounded text-white font-semibold"
-          >
-            Create Account
-          </button>
-        </div>
-      </form>
+      {/* Login link */}
+      <div className="text-center mt-10 text-base text-gray-700">
+        Already have an account?{' '}
+        <Link to="/" className="text-black font-semibold underline hover:text-green-700">
+          Login
+        </Link>
+      </div>
     </div>
-  </UserLayout>
-);
+  );
 };
 
 export default CreateAccount;
