@@ -5,12 +5,18 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [accountType, setAccountType] = useState('user'); // user or trainer
 
   const handleNext = (e) => {
     e.preventDefault();
 
-    if (!email.endsWith('@kfupm.edu.sa')) {
-      alert('Email must end with @kfupm.edu.sa');
+    if (accountType === 'user' && !email.endsWith('@kfupm.edu.sa')) {
+      alert('User email must end with @kfupm.edu.sa');
+      return;
+    }
+
+    if (accountType === 'trainer' && !email.endsWith('@gmail.com')) {
+      alert('Trainer email must end with @gmail.com');
       return;
     }
 
@@ -19,18 +25,19 @@ const CreateAccount = () => {
       return;
     }
 
-    // Redirect to the next step of account creation
-    navigate('/create-account-details');
+    if (accountType === 'trainer') {
+      navigate('/create-account-details/trainer');
+    } else {
+      navigate('/create-account-details/user');
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#f8f9f8] px-4 py-10">
-      {/* Page Header with rounded style */}
       <div className="bg-green-800 text-white text-center py-4 text-2xl font-bold rounded-b-[100px] w-full max-w-6xl mx-auto mb-10">
         Create Account
       </div>
 
-      {/* Form Box */}
       <div className="flex justify-center">
         <div className="bg-white w-full max-w-xl p-10 rounded-2xl shadow-xl">
           <h2 className="text-center text-2xl font-semibold mb-8">Create account</h2>
@@ -54,6 +61,30 @@ const CreateAccount = () => {
               required
             />
 
+            <fieldset className="space-y-2">
+              <legend className="font-semibold text-gray-700 mb-1">Delivery Method</legend>
+              <label className="flex items-center space-x-3">
+                <input
+                  type="radio"
+                  name="accountType"
+                  value="user"
+                  checked={accountType === 'user'}
+                  onChange={() => setAccountType('user')}
+                />
+                <span>Regular User</span>
+              </label>
+              <label className="flex items-center space-x-3">
+                <input
+                  type="radio"
+                  name="accountType"
+                  value="trainer"
+                  checked={accountType === 'trainer'}
+                  onChange={() => setAccountType('trainer')}
+                />
+                <span>Trainer</span>
+              </label>
+            </fieldset>
+
             <button
               type="submit"
               className="bg-green-400 w-full py-3 rounded-lg text-lg font-semibold text-white hover:bg-green-500 transition"
@@ -64,7 +95,6 @@ const CreateAccount = () => {
         </div>
       </div>
 
-      {/* Login link */}
       <div className="text-center mt-10 text-base text-gray-700">
         Already have an account?{' '}
         <Link to="/" className="text-black font-semibold underline hover:text-green-700">

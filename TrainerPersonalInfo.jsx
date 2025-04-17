@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
-const CreateAccountDetails = () => {
+const TrainerPersonalInfo = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: '',
     age: '',
-    weight: '',
-    height: '',
-    goal: '',
+    experience: '',
+    specialization: '',
+    focus: '',
     level: '',
   });
 
@@ -23,7 +23,7 @@ const CreateAccountDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Account created successfully!');
+    alert('Trainer account created!');
     navigate('/');
   };
 
@@ -34,7 +34,6 @@ const CreateAccountDetails = () => {
         Create Account
       </div>
 
-      {/* Form Section */}
       <div className="max-w-3xl mx-auto">
         <h2 className="text-center text-xl font-bold mb-6">Personal Information</h2>
 
@@ -59,45 +58,45 @@ const CreateAccountDetails = () => {
           />
           <input
             type="text"
-            name="weight"
-            placeholder="Weight  kg"
-            value={form.weight}
+            name="experience"
+            placeholder="Years of Experience"
+            value={form.experience}
             onChange={handleChange}
             className="w-full bg-green-200 px-4 py-3 rounded-md text-sm"
             required
           />
           <input
             type="text"
-            name="height"
-            placeholder="Height  cm"
-            value={form.height}
+            name="specialization"
+            placeholder="Specialization (e.g. Lose Weight, Flexibility)"
+            value={form.specialization}
             onChange={handleChange}
             className="w-full bg-green-200 px-4 py-3 rounded-md text-sm"
             required
           />
 
-          {/* Select Goals and Level */}
+          {/* Workout Focus & Trainer Level */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
-            {/* Goal */}
+            {/* Workout Focus */}
             <div className="bg-white rounded-lg shadow-md p-4">
-              <h3 className="font-semibold mb-3">Goal</h3>
-              {['Maintain a healthy lifestyle', 'Lose weight', 'Build muscle'].map((goal) => (
+              <h3 className="font-semibold mb-3">Workout Focus</h3>
+              {['Maintain a healthy lifestyle', 'Lose weight', 'Build muscle'].map((option) => (
                 <div
-                  key={goal}
-                  onClick={() => handleSelect('goal', goal)}
+                  key={option}
+                  onClick={() => handleSelect('focus', option)}
                   className={`cursor-pointer px-3 py-2 rounded hover:bg-green-100 ${
-                    form.goal === goal ? 'bg-green-200 font-semibold' : ''
+                    form.focus === option ? 'bg-green-200 font-semibold' : ''
                   }`}
                 >
-                  {goal}
+                  {option}
                 </div>
               ))}
             </div>
 
-            {/* Workout Level */}
+            {/* Trainer Level */}
             <div className="bg-white rounded-lg shadow-md p-4">
-              <h3 className="font-semibold mb-3">Workout level</h3>
-              {['Beginner', 'Intermediate', 'Advanced'].map((level) => (
+              <h3 className="font-semibold mb-3">Trainer level</h3>
+              {['Intermediate', 'Advanced'].map((level) => (
                 <div
                   key={level}
                   onClick={() => handleSelect('level', level)}
@@ -111,7 +110,7 @@ const CreateAccountDetails = () => {
             </div>
           </div>
 
-          {/* Submit Button inside the form */}
+          {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
@@ -134,4 +133,4 @@ const CreateAccountDetails = () => {
   );
 };
 
-export default CreateAccountDetails;
+export default TrainerPersonalInfo;
