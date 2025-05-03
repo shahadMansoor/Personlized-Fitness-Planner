@@ -18,11 +18,12 @@ The Personalized Fitness Planner solves this by providing customized workout and
 
 ## Technologies Used
  • Frontend: React, TailwindCSS
-
+ • Backend: Node.js, Express.js
  ⸻
  ## Setup and Installation Instructions
 
 We begin by ensuring Node.js and npm are installed on the machine. Once inside the project folder, we run npm install to install all required dependencies. The project is built using React and TailwindCSS, with Tailwind already configured through PostCSS. Necessary dependencies like tailwindcss, autoprefixer, and postcss are pre-installed, and we manage styling through the tailwind.config.js and global CSS files. After setup, we launch the development server using npm start and access the application through http://localhost:3000 in the browser.
+Then, we install the MongoDB and do a backend part in the VS and connect the Frontend React Web with the MongoDB via npx nodemon server.js
 
 ⸻
 ## Team member
