@@ -18,6 +18,7 @@ The Personalized Fitness Planner solves this by providing customized workout and
 ## Technologies Used
  - Frontend: React, TailwindCS
  - Backend: Node.js, Express.js
+   
  ⸻
  ## Setup and Installation Instructions
 
