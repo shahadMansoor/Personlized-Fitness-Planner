@@ -7,12 +7,11 @@ The Personalized Fitness Planner solves this by providing customized workout and
 ⸻
 
 ## Features
- • Personalized workout and meal plans based on user goals
- • Progress tracking dashboard
- • Motivational reminders and habit tracking
- • Integration with wearable devices (coming soon)
- • Community support and challenges
- • Performance analytics and reporting
+ •  Personalized workout and meal plans based on user goals
+ •  Progress tracking dashboard
+ •  Motivational reminders and habit tracking
+ •  Community support and challenges
+ •  Performance analytics and reporting
 
 ⸻
 
