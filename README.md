@@ -27,10 +27,10 @@ Then, we install the MongoDB and do a backend part in the VS and connect the Fro
 
 ⸻
 ## Team member
-• Shahad Almarhoon (202158610)
-• Ghufran Alhulaymi (202175090)
-• Zainab Almaskeen (202175370)
-• Atheer Alaithan (202161870)
-• Bayan Alhassan (202160930)
-• Kawthar Alsabi (202261400)
+- Shahad Almarhoon (202158610)
+- Ghufran Alhulaymi (202175090)
+- Zainab Almaskeen (202175370)
+- Atheer Alaithan (202161870)
+- Bayan Alhassan (202160930)
+- Kawthar Alsabi (202261400)
  
