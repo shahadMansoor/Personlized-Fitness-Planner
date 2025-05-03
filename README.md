@@ -7,17 +7,17 @@ The Personalized Fitness Planner solves this by providing customized workout and
 ⸻
 
 ## Features
- •  Personalized workout and meal plans based on user goals
- •  Progress tracking dashboard
- •  Motivational reminders and habit tracking
- •  Community support and challenges
- •  Performance analytics and reporting
+ - Personalized workout and meal plans based on user goals
+ - Progress tracking dashboard
+ - Motivational reminders and habit tracking
+ - Community support and challenges
+ - Performance analytics and reporting
 
 ⸻
 
 ## Technologies Used
- • Frontend: React, TailwindCSS
- • Backend: Node.js, Express.js
+ - Frontend: React, TailwindCS
+ - Backend: Node.js, Express.js
  ⸻
  ## Setup and Installation Instructions
 
